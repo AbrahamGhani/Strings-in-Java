@@ -35,26 +35,36 @@ public class Main {
 
         System.out.print("Full Name:\t");
         String userFullName = scanner.nextLine();
+
+
+
         int firstSpaceInName = userFullName.indexOf(" ");
         int secondSpaceInName = userFullName.indexOf(" ", firstSpaceInName + 1);
+        int commaInName = userFullName.indexOf(",");
 
 
-        int commaInName;
+        String userFirstName = userFullName.substring(0, firstSpaceInName);
         String userSuffix = "";
+        String userMiddleName = "";
+        String userLastName = "";
 
 
+        if (commaInName != -1) {
+            // Only extract last name up to comma if space comes before comma
+            if (secondSpaceInName != -1 && secondSpaceInName < commaInName) {
+                userLastName = userFullName.substring(secondSpaceInName + 1, commaInName).trim();
+            } else {
+                userLastName = userFullName.substring(firstSpaceInName + 1, commaInName).trim(); // fallback
+            }
 
-        if(userFullName.contains(",")){
-            commaInName = userFullName.indexOf(",");
-            userSuffix = userFullName.substring(commaInName);
-        }
-        else {
+            userSuffix = userFullName.substring(commaInName + 1).trim();
+        } else {
+            userLastName = userFullName.substring(secondSpaceInName + 1).trim();
             userSuffix = "(none)";
         }
 
 
 
-        String userMiddleName = "";
 
         if(secondSpaceInName != -1 && userFullName.charAt(secondSpaceInName -1) != ','){
             userMiddleName = userFullName.substring(firstSpaceInName + 1, secondSpaceInName);
@@ -62,12 +72,6 @@ public class Main {
         else {
             userMiddleName = "(none)";
         }
-
-
-
-
-        String userFirstName = userFullName.substring(0, firstSpaceInName);
-        String userLastName = userFullName.substring(secondSpaceInName + 1);
 
 
 
