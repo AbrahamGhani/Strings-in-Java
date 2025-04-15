@@ -2,7 +2,10 @@ package org.example;
 import java.util.*;
 
 public class Main {
+
     static Scanner scanner = new Scanner(System.in);
+
+
 
     public static void main(String[] args) {
 
@@ -54,7 +57,7 @@ public class Main {
             if (secondSpaceInName != -1 && secondSpaceInName < commaInName) {
                 userLastName = userFullName.substring(secondSpaceInName + 1, commaInName).trim();
             } else {
-                userLastName = userFullName.substring(firstSpaceInName + 1, commaInName).trim(); // fallback
+                userLastName = userFullName.substring(firstSpaceInName + 1, commaInName).trim();
             }
 
             userSuffix = userFullName.substring(commaInName + 1).trim();
@@ -72,7 +75,6 @@ public class Main {
         else {
             userMiddleName = "(none)";
         }
-
 
 
         System.out.println("First Name: " + userFirstName);
