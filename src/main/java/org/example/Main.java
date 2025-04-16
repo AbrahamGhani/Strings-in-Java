@@ -85,9 +85,32 @@ public class Main {
 
 ///////////////////////////////////---- class practice ----///////////////////////////////////
 
-        System.out.println(StringHelper.grabLastWord("Abraham Ghani").trim());
+     //   System.out.println(StringHelper.grabLastWord("Abraham Ghani").trim());
 
 
+
+///////////////////////////////////---- Exercise 3 ----///////////////////////////////////
+
+        System.out.println("Enter game Score: ");
+        String gameScore = scanner.nextLine();
+
+        int colonIndex = gameScore.indexOf(":");
+        int pipeIndex = gameScore.indexOf("|");
+        int secondColonIndex = gameScore.indexOf(":", pipeIndex);
+        String team1 = gameScore.substring(0,colonIndex);
+        String team2 = gameScore.substring(colonIndex + 1, pipeIndex);
+        int team1Score = Integer.parseInt(gameScore.substring(pipeIndex + 1,secondColonIndex));
+        int team2Score = Integer.parseInt(gameScore.substring(secondColonIndex + 1));
+
+
+        if (team1Score > team2Score){
+            System.out.println(team1 + " has won the game");
+        } else if (team2Score > team1Score) {
+            System.out.println(team2 + " has beaten " + team1);
+        }
+        else {
+            System.out.println("Draw");
+        }
 
 
     }
