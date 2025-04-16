@@ -143,5 +143,56 @@ public class Main {
 
 
 
+
+
+///////////////////////////////////---- Exercise 5 ----///////////////////////////////////
+
+StringBuilder fullBillingADDR = new StringBuilder();
+StringBuilder fullShippingADDR = new StringBuilder();
+
+        System.out.println("Please enter the following info.\nFull name:");
+        String fullName = scanner.nextLine();
+   fullBillingADDR.append("Billing Address:\n");
+   fullShippingADDR.append("Shipping Address:\n");
+
+
+        System.out.println("Billing Street: ");
+        String billingStreet = scanner.nextLine();
+
+        System.out.println("Billing City: ");
+        String billingCity = scanner.nextLine();
+
+        System.out.println("Billing State: ");
+        String billingState = scanner.nextLine();
+
+        System.out.println("Billing Zip: ");
+        String billingZip = scanner.nextLine();
+
+        fullBillingADDR.append(billingStreet+"\n" + billingCity + ", " + billingState + " " + billingZip);
+
+
+
+
+        System.out.println("Shipping Street: ");
+        String shippingStreet = scanner.nextLine();
+        fullShippingADDR.append(shippingStreet + "\n");
+
+        System.out.println("Shipping City: ");
+        String shippingCity = scanner.nextLine();
+        fullShippingADDR.append(shippingCity + ", ");
+
+        System.out.println("Shipping State: ");
+        String shippingState = scanner.nextLine();
+        fullShippingADDR.append(shippingState + " ");
+
+        System.out.println("Shipping Zip: ");
+        String shippingZip = scanner.nextLine();
+        fullShippingADDR.append(shippingZip);
+
+
+        System.out.println(fullName + "\n");
+        System.out.println(fullBillingADDR + "\n");
+        System.out.println(fullShippingADDR);
+
     }
 }
